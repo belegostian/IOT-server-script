@@ -12,4 +12,3 @@ for x in mydoc:
       print("<p>")
       print(x)
       print("</p>")
-      print("<br>")

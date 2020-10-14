@@ -14,4 +14,6 @@ myquery = { "借用人" : name }
 mydoc = mycol.find(myquery)
 
 for x in mydoc:
-  print(x)
+      print("<p>")
+      print(x)
+      print("</p>")
