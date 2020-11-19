@@ -1,4 +1,5 @@
 #!C:\Program Files\Python38\python.exe
+#-*- coding: utf-8 -*-
 import cgi, cgitb, pymongo
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
@@ -8,11 +9,11 @@ mycol = mydb["LoanRecord"]
 print("Content-type:text/html\r\n")
 
 form = cgi.FieldStorage()
-name2 = form.getvalue('name2')
+name = form.getvalue('n')
 
 mydict = { 
     "狀態" : "租借中",
-    "借用人" : name2,
+    "借用人" : name,
     "財物編號" : "1015",
     "財物名稱" : "測試物件-2",
     "廠牌" : "none",

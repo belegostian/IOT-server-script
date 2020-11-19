@@ -7,12 +7,15 @@ sys.stdout = codecs.getwriter('utf8')(sys.stdout.buffer)
 
 myclient = pymongo.MongoClient("mongodb://localhost:27017/")
 mydb = myclient["LabEquipmentRentalDB"]
-mycol = mydb["LoanRecord"]
+mycol = mydb["UserList"]
+
 
 print("Content-type:text/html\r\n")
 
-mydoc = mycol.find()
-for x in mydoc:
-      print("<p>")
-      print(x)
-      print("</p>")
+form = cgi.FieldStorage()
+account = form.getvalue('account')
+password = form.getvalue('password')
+
+myquery = { "帳戶名稱" : account, "密碼" : password }
+mydoc = mycol.find_one(myquery)
+print(mydoc['聯絡人'])
